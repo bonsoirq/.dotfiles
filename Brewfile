@@ -5,6 +5,8 @@ tap "homebrew/core"
 brew "fish"
 # Distributed revision control system
 brew "git"
+# Manage multiple Node.js versions
+brew "nvm"
 # Vi 'workalike' with many additional features
 brew "vim"
 # Desktop password and login vault
