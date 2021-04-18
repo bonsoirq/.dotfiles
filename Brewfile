@@ -1,10 +1,10 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
-# User-friendly command-line shell for UNIX-like operating systems
-brew "fish"
 # Distributed revision control system
 brew "git"
+# Improved top (interactive process viewer)
+brew "htop"
 # Manage multiple Node.js versions
 brew "nvm"
 # Vi 'workalike' with many additional features
@@ -29,9 +29,15 @@ cask "maccy"
 cask "slack"
 # Music streaming service
 cask "spotify"
+# Video game digital distribution service
+cask "steam"
 # Customizable email client
 cask "thunderbird"
+# Free and open-source hosted hypervisor for x86 virtualization
+cask "virtualbox"
 # Open-source code editor
 cask "visual-studio-code"
+# Multimedia player
+cask "vlc"
 # Video communication and virtual meeting platform
 cask "zoom"
