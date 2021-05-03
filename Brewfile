@@ -7,10 +7,16 @@ brew "git"
 brew "htop"
 # Manage multiple Node.js versions
 brew "nvm"
+# Object-relational database system
+brew "postgresql"
+# Python version management
+brew "pyenv"
 # Vi 'workalike' with many additional features
 brew "vim"
 # Desktop password and login vault
 cask "bitwarden"
+# Scriptable scratchpad for developers
+cask "boop"
 # Voice and text chat software
 cask "discord"
 # App to build and share containerized applications and microservices
@@ -33,8 +39,8 @@ cask "spotify"
 cask "steam"
 # Customizable email client
 cask "thunderbird"
-# Free and open-source hosted hypervisor for x86 virtualization
-cask "virtualbox"
+# Virtual machines UI using QEMU
+cask "utm"
 # Open-source code editor
 cask "visual-studio-code"
 # Multimedia player
