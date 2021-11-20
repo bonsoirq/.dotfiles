@@ -1,18 +1,19 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
+tap "homebrew/services"
 # Distributed revision control system
 brew "git"
 # Improved top (interactive process viewer)
 brew "htop"
 # Manage multiple Node.js versions
 brew "nvm"
-# Object-relational database system
-brew "postgresql"
 # Python version management
 brew "pyenv"
 # Vi 'workalike' with many additional features
 brew "vim"
+# Multi-track audio editor and recorder
+cask "audacity"
 # Desktop password and login vault
 cask "bitwarden"
 # Scriptable scratchpad for developers
@@ -31,6 +32,8 @@ cask "google-chrome"
 cask "iterm2"
 # Clipboard manager
 cask "maccy"
+# App to write, plan, collaborate, and get organized
+cask "notion"
 # Team communication and collaboration software
 cask "slack"
 # Music streaming service
@@ -39,8 +42,6 @@ cask "spotify"
 cask "steam"
 # Customizable email client
 cask "thunderbird"
-# Virtual machines UI using QEMU
-cask "utm"
 # Open-source code editor
 cask "visual-studio-code"
 # Multimedia player
