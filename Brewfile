@@ -1,13 +1,14 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
-tap "homebrew/services"
 # Distributed revision control system
 brew "git"
 # Improved top (interactive process viewer)
 brew "htop"
 # Manage multiple Node.js versions
 brew "nvm"
+# Pretty system information tool written in POSIX sh
+brew "pfetch"
 # Python version management
 brew "pyenv"
 # Vi 'workalike' with many additional features
@@ -42,6 +43,8 @@ cask "spotify"
 cask "steam"
 # Customizable email client
 cask "thunderbird"
+# Virtualizer for x86 hardware
+cask "virtualbox"
 # Open-source code editor
 cask "visual-studio-code"
 # Multimedia player
