@@ -1,6 +1,8 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
+# .NET Core
+brew "dotnet"
 # Distributed revision control system
 brew "git"
 # Improved top (interactive process viewer)
@@ -13,12 +15,16 @@ brew "pfetch"
 brew "pyenv"
 # Vi 'workalike' with many additional features
 brew "vim"
+# Automatic tiling window manager similar to xmonad
+cask "amethyst"
 # Multi-track audio editor and recorder
 cask "audacity"
 # Desktop password and login vault
 cask "bitwarden"
 # Scriptable scratchpad for developers
 cask "boop"
+# E-books management software
+cask "calibre"
 # Voice and text chat software
 cask "discord"
 # App to build and share containerized applications and microservices
