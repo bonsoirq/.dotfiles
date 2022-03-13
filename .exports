@@ -6,3 +6,6 @@ export NVM_DIR="$HOME/.nvm"
 # python
 eval "$(pyenv init -)"
 export PATH="$HOME/.poetry/bin:$PATH"
+
+# user-compiled binaries
+export PATH="$HOME/bin:$PATH"
