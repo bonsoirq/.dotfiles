@@ -10,3 +10,12 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 
 # Install plugins
 vim +PlugInstall +qall
+
+ln -s .dotfiles/.gitconfig .gitconfig
+ln -s .dotfiles/.zshrc .zshrc
+ln -s .dotfiles/.nvmrc .nvmrc
+ln -s .dotfiles/.vimrc .vimrc
+ln -s .dotfiles/.xinitrc .xinitrc
+ln -s .dotfiles/.config/bspwm .config/bspwm
+ln -s .dotfiles/.config/sxhkd .config/sxhkd
+ln -s .dotfiles/.config/polybar .config/polybar
