@@ -17,5 +17,6 @@ ln -s .dotfiles/.vimrc .vimrc
 ln -s .dotfiles/.xinitrc .xinitrc
 ln .dotfiles/.config/bspwm/bspwmrc .config/bspwm/bspwmrc
 ln .dotfiles/.config/sxhkd/sxhkdrc .config/sxhkd/sxhkdrc
+ln .dotfiles/.config/alacritty/alacritty.yml .config/alacritty/alacritty.yml
 ln .dotfiles/.config/polybar/config.ini .config/polybar/config.ini
 ln .dotfiles/.config/polybar/launch.sh .config/polybar/launch.sh
