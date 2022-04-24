@@ -6,16 +6,16 @@ mkdir -p .vim/files/info
 mkdir -p .vim/files/swap
 
 # Install vim-plug
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim \
+    & vim +PlugInstall +qall
 
-# Install plugins
-vim +PlugInstall +qall
-
+# Link rc files
 ln -s .dotfiles/.gitconfig .gitconfig
 ln -s .dotfiles/.zshrc .zshrc
 ln -s .dotfiles/.nvmrc .nvmrc
 ln -s .dotfiles/.vimrc .vimrc
 ln -s .dotfiles/.xinitrc .xinitrc
-ln -s .dotfiles/.config/bspwm .config/bspwm
-ln -s .dotfiles/.config/sxhkd .config/sxhkd
-ln -s .dotfiles/.config/polybar .config/polybar
+ln .dotfiles/.config/bspwm/bspwmrc .config/bspwm/bspwmrc
+ln .dotfiles/.config/sxhkd/sxhkdrc .config/sxhkd/sxhkdrc
+ln .dotfiles/.config/polybar/config.ini .config/polybar/config.ini
+ln .dotfiles/.config/polybar/launch.sh .config/polybar/launch.sh

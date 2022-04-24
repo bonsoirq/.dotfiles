@@ -16,6 +16,7 @@ gawk 5.1.1-1
 gcc 11.2.0-4
 gettext 0.21-2
 git 2.36.0-1
+gnome-keyring 1:40.0-1
 google-chrome 100.0.4896.127-1
 grep 3.7-1
 groff 1.22.4-7
