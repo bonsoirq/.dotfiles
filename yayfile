@@ -32,7 +32,6 @@ make 4.3-3
 man-db 2.10.2-1
 nitrogen 1.6.1-4
 noto-fonts 20201226-2
-noto-fonts-emoji 20211101-1
 nvidia 510.60.02-16
 obsidian 0.14.5-1
 openssh 9.0p1-1
@@ -43,10 +42,12 @@ polybar 3.6.2-1
 python-gpgme 1.17.1-1
 rofi 1.7.3-1
 rofimoji 5.4.0-1
+seahorse 1:41.0-2
 sed 4.8-1
 sudo 1.9.10-1
 sxhkd 0.6.2-1
 texinfo 6.8-2
+ttf-apple-emoji 15.4-1
 vim 8.2.4651-1
 visual-studio-code-bin 1.66.2-2
 which 2.21-5
