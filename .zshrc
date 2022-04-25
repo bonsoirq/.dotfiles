@@ -1,4 +1,4 @@
 source ~/.dotfiles/zsh/defaults
 source ~/.dotfiles/zsh/prompt
-
-source ~/.dotfiles/.aliases
+source ~/.dotfiles/zsh/aliases
+source ~/.dotfiles/zsh/exports

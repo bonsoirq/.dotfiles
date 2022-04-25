@@ -1,7 +1,0 @@
-alias lsla='ls -la'
-alias reload='source ~/.zshrc'
-alias gst='git status'
-alias gco='git checkout'
-alias gb='git branch'
-alias ggl='git pull'
-alias ggp='git push'
