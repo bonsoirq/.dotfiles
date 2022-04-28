@@ -15,6 +15,8 @@ ln -s .dotfiles/.vimrc .vimrc
 
 if [ $(uname) = 'Linux' ]; then
   ln -s .dotfiles/.xinitrc .xinitrc
+  ln -s .dotfiles/.zprofile .zprofile
+  ln -s .dotfiles/.Xresources .Xresources
   ln .dotfiles/.config/alacritty/alacritty.yml .config/alacritty/alacritty.yml
   ln .dotfiles/.config/polybar/config.ini .config/polybar/config.ini
   ln .dotfiles/.config/polybar/launch.sh .config/polybar/launch.sh 
