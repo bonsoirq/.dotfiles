@@ -4,7 +4,7 @@ autoconf 2.71-1
 automake 1.16.5-1
 base 2-2
 binutils 2.38-4
-bison 3.8.2-3
+bison 3.8.2-4
 dhcpcd 9.4.1-1
 dropbox 146.4.4836-1
 dropbox-cli 2020.03.04-4
@@ -17,7 +17,7 @@ gcc 11.2.0-4
 gettext 0.21-2
 git 2.36.0-1
 gnome-keyring 1:40.0-1
-google-chrome 100.0.4896.127-1
+google-chrome 101.0.4951.41-1
 grep 3.7-1
 groff 1.22.4-7
 gzip 1.12-1
@@ -25,15 +25,15 @@ htop 3.1.2-1
 i3-gaps 4.20.1-2
 iwd 1.27-1
 libtool 2.4.7-1
-linux 5.17.4.arch1-1
+linux 5.17.5.arch1-1
 linux-firmware 20220411.705f19a-1
 m4 1.4.19-1
 make 4.3-3
 man-db 2.10.2-1
+mons 0.8.2-1
 nitrogen 1.6.1-4
-noto-fonts 20201226-2
-nvidia 510.60.02-16
-obsidian 0.14.5-1
+nvidia 510.60.02-17
+obsidian 0.14.6-1
 openssh 9.0p1-1
 pacman 6.0.1-4
 patch 2.7.6-8
@@ -49,7 +49,8 @@ sed 4.8-1
 sudo 1.9.10-1
 texinfo 6.8-2
 ttf-apple-emoji 15.4-1
-vim 8.2.4651-1
+ttf-unifont 14.0.03-1
+vim 8.2.4827-1
 visual-studio-code-bin 1.66.2-2
 which 2.21-5
 xclip 0.13-3
