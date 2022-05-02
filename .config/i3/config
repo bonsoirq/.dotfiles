@@ -14,6 +14,7 @@ set $mod Mod4
 # Start polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id mons -e left && nitrogen --restore
+exec_always --no-startup-id "setxkbmap -model pc104 -layout pl -option grp:alt_shift_toggle"
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
