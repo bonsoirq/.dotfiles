@@ -8,12 +8,16 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
     & vim +PlugInstall +qall
 
 # Link rc files
+rm .gitconfig .zshrc .nvmrc .vimrc &&
 ln -s .dotfiles/.gitconfig .gitconfig
 ln -s .dotfiles/.zshrc .zshrc
 ln -s .dotfiles/.nvmrc .nvmrc
 ln -s .dotfiles/.vimrc .vimrc
 
 if [ $(uname) = 'Linux' ]; then
+  rm .xinitrc .zprofile .Xresources \
+    .config/alacritty/alacritty.yml .config/polybar/config.ini .config/polybar/launch.sh  \
+    .config/i3/config &&
   ln -s .dotfiles/.xinitrc .xinitrc
   ln -s .dotfiles/.zprofile .zprofile
   ln -s .dotfiles/.Xresources .Xresources
