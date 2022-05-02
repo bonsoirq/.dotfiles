@@ -17,7 +17,7 @@ ln -s .dotfiles/.vimrc .vimrc
 if [ $(uname) = 'Linux' ]; then
   rm .xinitrc .zprofile .Xresources \
     .config/alacritty/alacritty.yml .config/polybar/config.ini .config/polybar/launch.sh  \
-    .config/i3/config &&
+    .config/i3/config .config/cava/config &&
   ln -s .dotfiles/.xinitrc .xinitrc
   ln -s .dotfiles/.zprofile .zprofile
   ln -s .dotfiles/.Xresources .Xresources
@@ -25,4 +25,5 @@ if [ $(uname) = 'Linux' ]; then
   ln .dotfiles/.config/polybar/config.ini .config/polybar/config.ini
   ln .dotfiles/.config/polybar/launch.sh .config/polybar/launch.sh 
   ln .dotfiles/.config/i3/config .config/i3/config
+  ln .dotfiles/.config/cava/config .config/cava/config
 fi
