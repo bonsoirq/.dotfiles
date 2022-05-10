@@ -1,1 +1,1 @@
-export DXVK_FRAME_RATE=60
+source /usr/share/nvm/init-nvm.sh
