@@ -1,1 +1,9 @@
 source /usr/share/nvm/init-nvm.sh
+
+# pnpm
+export PNPM_HOME="$HOME/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
+
+# use self compiled executables contained in home/bin
+export PATH="$HOME/bin:$PATH"

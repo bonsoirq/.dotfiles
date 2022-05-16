@@ -2,12 +2,12 @@
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 
 " Declare the list of plugins.
-Plug 'morhetz/gruvbox'
+Plug 'NLKNguyen/papercolor-theme'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
-colorscheme gruvbox
+colorscheme PaperColor
 
 " Based on: 
 " https://github.com/mhinz/vim-galore/blob/master/static/minimal-vimrc.vim
