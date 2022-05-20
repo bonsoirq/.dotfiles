@@ -1,10 +1,14 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
+tap "homebrew/services"
+tap "koekeishiya/formulae"
 # Distributed revision control system
 brew "git"
 # Improved top (interactive process viewer)
 brew "htop"
+# Open source relational database management system
+brew "mysql", restart_service: true
 # Manage multiple Node.js versions
 brew "nvm"
 # Python version management
@@ -13,6 +17,10 @@ brew "pyenv"
 brew "vim"
 # UNIX shell (command interpreter)
 brew "zsh"
+# Simple hotkey-daemon for macOS.
+brew "koekeishiya/formulae/skhd"
+# GPU-accelerated terminal emulator
+cask "alacritty"
 # Automatic tiling window manager similar to xmonad
 cask "amethyst"
 # Multi-track audio editor and recorder
