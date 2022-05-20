@@ -1,20 +1,18 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
-# .NET Core
-brew "dotnet"
 # Distributed revision control system
 brew "git"
 # Improved top (interactive process viewer)
 brew "htop"
 # Manage multiple Node.js versions
 brew "nvm"
-# Pretty system information tool written in POSIX sh
-brew "pfetch"
 # Python version management
 brew "pyenv"
 # Vi 'workalike' with many additional features
 brew "vim"
+# UNIX shell (command interpreter)
+brew "zsh"
 # Automatic tiling window manager similar to xmonad
 cask "amethyst"
 # Multi-track audio editor and recorder
@@ -33,24 +31,30 @@ cask "docker"
 cask "dropbox"
 # Web browser
 cask "firefox"
+# Free and open-source image editor
+cask "gimp"
 # Web browser
 cask "google-chrome"
 # Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
+# End-to-end encryption software
+cask "keybase"
 # Clipboard manager
 cask "maccy"
 # App to write, plan, collaborate, and get organized
 cask "notion"
+# News reader with flexible settings
+cask "raven-reader"
 # Team communication and collaboration software
 cask "slack"
 # Music streaming service
 cask "spotify"
 # Video game digital distribution service
 cask "steam"
+# Native GUI tool for relational databases
+cask "tableplus"
 # Customizable email client
 cask "thunderbird"
-# Virtualizer for x86 hardware
-cask "virtualbox"
 # Open-source code editor
 cask "visual-studio-code"
 # Multimedia player
