@@ -2,13 +2,15 @@
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 
 " Declare the list of plugins.
-Plug 'NLKNguyen/papercolor-theme'
-
+Plug 'kaicataldo/material.vim', { 'branch': 'main' }
+Plug 'dense-analysis/ale'
+Plug 'preservim/nerdtree'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
-colorscheme PaperColor
-
+let g:material_terminal_italics = 1
+" let g:material_theme_style = 'palenight'
+colorscheme material
 " Based on: 
 " https://github.com/mhinz/vim-galore/blob/master/static/minimal-vimrc.vim
 "
@@ -29,7 +31,7 @@ set shiftwidth  =4         " >> indents by 4 spaces.
 set shiftround             " >> indents to next multiple of 'shiftwidth'.
 set number                 " Show line number.
 
-set background  =dark
+" set background  =dark
 set backspace   =indent,eol,start  " Make backspace work as you would expect.
 set hidden                 " Switch between buffers without having to save first.
 set laststatus  =2         " Always show statusline.
