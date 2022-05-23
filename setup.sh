@@ -7,6 +7,9 @@ mkdir -p .vim/files/{backup,info,swap}
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim \
 & vim +PlugInstall +qall
 
+# Download zsh-vi-mode if not downloaded already
+[ ! -d "$HOME/.zsh-vi-mode" ] && git clone https://github.com/jeffreytse/zsh-vi-mode.git $HOME/.zsh-vi-mode
+
 # Link rc files
 rm -rf .gitconfig .zshrc .nvmrc .vimrc .config/alacritty  &&
 mkdir -p .config/alacritty &&

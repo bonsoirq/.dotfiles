@@ -1,3 +1,6 @@
+tap "earthly/earthly"
+tap "heroku/brew"
+tap "homebrew/aliases"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
@@ -7,10 +10,10 @@ tap "koekeishiya/formulae"
 brew "git"
 # Improved top (interactive process viewer)
 brew "htop"
-# Open source relational database management system
-brew "mysql", restart_service: true
 # Manage multiple Node.js versions
 brew "nvm"
+# Object-relational database system
+brew "postgresql"
 # Python version management
 brew "pyenv"
 # Vi 'workalike' with many additional features
@@ -19,6 +22,8 @@ brew "vim"
 brew "zsh"
 # Simple hotkey-daemon for macOS.
 brew "koekeishiya/formulae/skhd"
+# A tiling window manager for macOS based on binary space partitioning.
+brew "koekeishiya/formulae/yabai"
 # GPU-accelerated terminal emulator
 cask "alacritty"
 # Automatic tiling window manager similar to xmonad
