@@ -106,7 +106,8 @@
 # ]
 
 # open terminal, blazingly fast compared to iTerm/Hyper
-cmd - return : alacritty
+cmd - return : open --new /Applications/Alacritty.app
+cmd - e : open --new ~
 
 # open qutebrowser
 # cmd + shift - return : ~/Scripts/qtb.sh
