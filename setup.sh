@@ -21,11 +21,12 @@ ln .dotfiles/.config/alacritty/alacritty.yml .config/alacritty/alacritty.yml
 
 if [ $(uname) = 'Linux' ]; then
     rm -rf .xinitrc .Xresources .zprofile \
-    .config/{cava,i3,picom,polybar,rofi} &&
-    mkdir -p .config/{cava,i3,picom,polybar,rofi} &&
+    .config/{awesome,cava,i3,picom,polybar,rofi} &&
+    mkdir -p .config/{awesome,cava,i3,picom,polybar,rofi} &&
     ln -s .dotfiles/.xinitrc .xinitrc
     ln -s .dotfiles/.Xresources .Xresources
     ln -s .dotfiles/.zprofile .zprofile
+    ln .dotfiles/.config/awesome/rc.lua .config/awesome/rc.lua
     ln .dotfiles/.config/cava/config .config/cava/config
     ln .dotfiles/.config/i3/config .config/i3/config
     ln .dotfiles/.config/picom/picom.conf .config/picom/picom.conf
