@@ -1,7 +1,23 @@
-Running homebrew dump:
+# Dotfiles
 
-`brew bundle dump --describe --force`
+## Setup
 
-Running yay dump:
+Run `setup.sh`
 
-`yay -Qe > yayfile`
+## Package manager dumps
+
+### Homebrew
+
+  Running dump:
+
+  `brew bundle dump --describe --force`
+
+  Restoring dump:
+
+  `brew bundle`
+
+### Pacman or Yay
+
+  Running dump:
+
+  `yay -Qe > yayfile`

@@ -27,6 +27,7 @@ if [ $(uname) = 'Linux' ]; then
     ln -s .dotfiles/.Xresources .Xresources
     ln -s .dotfiles/.zprofile .zprofile
     ln .dotfiles/.config/awesome/rc.lua .config/awesome/rc.lua
+    ln .dotfiles/.config/awesome/theme.lua .config/awesome/theme.lua
     ln .dotfiles/.config/cava/config .config/cava/config
     ln .dotfiles/.config/i3/config .config/i3/config
     ln .dotfiles/.config/picom/picom.conf .config/picom/picom.conf

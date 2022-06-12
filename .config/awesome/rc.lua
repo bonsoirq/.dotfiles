@@ -41,13 +41,26 @@ do
         in_error = false
     end)
 end
--- }}}
+
+awesome.connect_signal("startup", function()
+    -- Setup monitors once after startup
+    awful.spawn.once("mons -e left")
+    -- Run compositor
+    -- awful.spawn.once("picom -b")
+    -- Run dropbox
+    awful.spawn.once("dropbox")
+    -- Set keyboard layout
+    awful.spawn("setxkbmap -model pc104 -layout pl -option grp:alt_shift_toggle")
+end)
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+-- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+beautiful.init(gears.filesystem.get_configuration_dir() .. "theme.lua")
+
 beautiful.font = "Roboto 10"
 beautiful.useless_gap = 8
+beautiful.border_width = 1
 
 -- This is used later as the default terminal and editor to run.
 local terminal = "alacritty"
@@ -141,10 +154,16 @@ local tasklist_buttons = gears.table.join(
         awful.client.focus.byidx(-1)
     end))
 
+local function set_wallpaper()
+    awful.spawn("nitrogen --restore")
+end
+
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
--- screen.connect_signal("property::geometry", set_wallpaper)
+screen.connect_signal("property::geometry", set_wallpaper)
 
 awful.screen.connect_for_each_screen(function(s)
+    set_wallpaper()
+
     -- Each screen has its own tag table.
     awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
 
@@ -235,12 +254,16 @@ local global_keys = gears.table.join(
     awful.key({}, "XF86AudioLowerVolume", function() awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%") end),
     awful.key({}, "XF86AudioMute", function() awful.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle") end),
 
+    -- Brightness control
+    awful.key({}, "XF86MonBrightnessUp", function() awful.spawn("brightnessctl set +10%") end),
+    awful.key({}, "XF86MonBrightnessDown", function() awful.spawn("brightnessctl set 10%-") end),
+
     -- Apps
     awful.key({ keys.modkey, }, keys.enter, function() awful.spawn(terminal) end,
         { description = "Terminal", group = "Apps" }),
-    awful.key({}, "XF86HomePage", function() awful.spawn("google-chrome-stable") end,
+    awful.key({}, "XF86Explorer", function() awful.spawn("google-chrome-stable") end,
         { description = "Google Chrome", group = "Apps" }),
-    awful.key({}, "XF86Explorer", function() awful.spawn("nemo") end,
+    awful.key({}, "XF86HomePage", function() awful.spawn("nemo") end,
         { description = "Nemo", group = "Apps" }),
     awful.key({ keys.modkey, }, "p", function() awful.spawn("rofi -show run") end,
         { description = "Rofi", group = "Apps" }),
@@ -460,6 +483,7 @@ awful.rules.rules = {
             "DTA", -- Firefox addon DownThemAll.
             "copyq", -- Includes session name in class.
             "pinentry",
+            "steam_app_", -- Steam game
         },
         class = {
             "Arandr",
@@ -477,6 +501,7 @@ awful.rules.rules = {
         -- and the name shown there might not match defined rules here.
         name = {
             "Event Tester", -- xev.
+            "Terraria",
         },
         role = {
             "AlarmWindow", -- Thunderbird's calendar.
@@ -559,5 +584,3 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
-
-awful.spawn.once("mons -e left && nitrogen --restore")
