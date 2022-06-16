@@ -46,7 +46,7 @@ awesome.connect_signal("startup", function()
     -- Setup monitors once after startup
     awful.spawn.once("mons -e left")
     -- Run compositor
-    -- awful.spawn.once("picom -b")
+    awful.spawn.once("picom -b")
     -- Run dropbox
     awful.spawn.once("dropbox")
     -- Set keyboard layout
@@ -57,10 +57,6 @@ end)
 -- Themes define colours, icons, font and wallpapers.
 -- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 beautiful.init(gears.filesystem.get_configuration_dir() .. "theme.lua")
-
-beautiful.font = "Roboto 10"
-beautiful.useless_gap = 8
-beautiful.border_width = 1
 
 -- This is used later as the default terminal and editor to run.
 local terminal = "alacritty"
