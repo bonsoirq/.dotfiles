@@ -51,6 +51,8 @@ awesome.connect_signal("startup", function()
     awful.spawn.once("dropbox")
     -- Set keyboard layout
     awful.spawn("setxkbmap -model pc104 -layout pl -option grp:alt_shift_toggle")
+    -- Run polkit
+    awful.spawn.once("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
 end)
 
 -- {{{ Variable definitions
@@ -90,9 +92,41 @@ local myawesomemenu = {
     { "quit", function() awesome.quit() end },
 }
 
-local mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-    { "open terminal", terminal }
-}
+local function icon(name)
+    local base_path = "/usr/share/icons/Papirus/16x16/apps/"
+    local extension = ".svg"
+
+    return base_path .. name .. extension
+end
+
+local mymainmenu = awful.menu({
+    items = {
+        { "awesome", myawesomemenu, beautiful.awesome_icon },
+        { "Alacritty", terminal, icon("com.alacritty.Alacritty") },
+        { "Baobab", "baobab", icon("baobab") },
+        { "Bitwarden", "bitwarden-desktop", icon("bitwarden") },
+        { "Blueberry", "blueberry", icon("bluetooth-48") },
+        { "Chrome", "google-chrome-stable", icon("google-chrome") },
+        { "Discord", "discord", icon("discord") },
+        { "Evince", "evince", icon("evince") },
+        { "Flameshot", "flameshot", icon("flameshot") },
+        { "Gedit", "gedit", icon("gedit") },
+        { "GPArted", "gparted", icon("gparted") },
+        { "Minecraft", "minecraft-launcher", icon("minecraft-launcher") },
+        { "Nemo", "nemo", icon("nemo") },
+        { "Nitrogen", "nitrogen", icon("nitrogen") },
+        { "Obsidian", "obsidian", icon("obsidian") },
+        { "Slack", "slack", icon("slack") },
+        { "Spotify", "spotify", icon("spotify") },
+        { "Steam", "steam", icon("steam") },
+        { "Thunderbird", "thunderbird", icon("thunderbird") },
+        { "Transmission", "transmission-gtk", icon("transmission") },
+        { "Virtualbox", "virtualbox", icon("virtualbox") },
+        { "VLC", "vlc", icon("vlc") },
+        { "VS Code", "code", icon("visual-studio-code") },
+        { "Zoom", "zoom", icon("us.zoom.Zoom") },
+    },
+    width = 100,
 })
 
 local mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
