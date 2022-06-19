@@ -253,6 +253,13 @@ root.buttons(gears.table.join(
 ))
 -- }}}
 
+local function spotify_invoke(action)
+    return function()
+        awful.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player."
+            .. action)
+    end
+end
+
 -- {{{ Key bindings
 local global_keys = gears.table.join(
     awful.key({ keys.modkey, }, "s", hotkeys_popup.show_help,
@@ -283,6 +290,10 @@ local global_keys = gears.table.join(
     awful.key({}, "XF86AudioRaiseVolume", function() awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%") end),
     awful.key({}, "XF86AudioLowerVolume", function() awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%") end),
     awful.key({}, "XF86AudioMute", function() awful.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle") end),
+    awful.key({}, "XF86AudioPlay", spotify_invoke("PlayPause")),
+    awful.key({}, "XF86AudioStop", spotify_invoke("Pause")),
+    awful.key({}, "XF86AudioPrev", spotify_invoke("Previous")),
+    awful.key({}, "XF86AudioNext", spotify_invoke("Next")),
 
     -- Brightness control
     awful.key({}, "XF86MonBrightnessUp", function() awful.spawn("brightnessctl set +10%") end),
