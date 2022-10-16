@@ -20,4 +20,4 @@ Run `setup.sh`
 
   Running dump:
 
-  `yay -Qe > yayfile`
+  `yay -Q --explicit --unrequired > yayfile`
