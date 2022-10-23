@@ -2,6 +2,8 @@
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
 
+local constants = require("constants")
+
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
@@ -69,17 +71,11 @@ end)
 beautiful.init(gears.filesystem.get_configuration_dir() .. "theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-local terminal = "alacritty"
-local editor = os.getenv("EDITOR") or "vim"
+local terminal = constants.apps.terminal
+local editor = constants.apps.editor
 local editor_cmd = terminal .. " -e " .. editor
 
-local keys = {
-	alt = "Mod1",
-	ctrl = "Control",
-	enter = "Return",
-	modkey = "Mod4",
-	shift = "Shift",
-}
+local keys = constants.keys
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts =
@@ -105,7 +101,7 @@ end }, {
 end } }
 
 local function icon(name)
-	local base_path = "/usr/share/icons/Papirus/16x16/apps/"
+	local base_path = "/usr/share/icons/Papirus/32x32/apps/"
 	local extension = ".svg"
 
 	return base_path .. name .. extension
@@ -113,7 +109,7 @@ end
 
 local mymainmenu = awful.menu({
 	items = {
-		{ "awesome", myawesomemenu, beautiful.awesome_icon },
+		{ "awesome", myawesomemenu, icon("distributor-logo-archlinux") },
 		{ "Alacritty", terminal, icon("com.alacritty.Alacritty") },
 		{ "Baobab", "baobab", icon("baobab") },
 		{ "Bitwarden", "bitwarden-desktop", icon("bitwarden") },
@@ -138,11 +134,10 @@ local mymainmenu = awful.menu({
 		{ "VS Code", "code", icon("visual-studio-code") },
 		{ "Zoom", "zoom", icon("us.zoom.Zoom") },
 	},
-	width = 100,
 })
 
 local mylauncher = awful.widget.launcher({
-	image = beautiful.awesome_icon,
+	image = icon("distributor-logo-archlinux"),
 	menu = mymainmenu,
 })
 
@@ -225,11 +220,7 @@ awful.screen.connect_for_each_screen(function(s)
 -- Add widgets to the wibox -- Left widgets -- Middle widget -- Right widgets
 	set_wallpaper()
 
-	awful.tag(
-		{ "1", "2", "3", "4", "5", "6", "7", "8", "9" },
-		s,
-		awful.layout.layouts[1]
-	)
+	awful.tag({ "1", "2", "3", "4", "5" }, s, awful.layout.layouts[1])
 
 	s.mypromptbox = awful.widget.prompt()
 	s.mylayoutbox = awful.widget.layoutbox(s)
@@ -298,14 +289,6 @@ root.buttons(
 )
 -- }}}
 
-local function spotify_invoke(action)
-	return function()
-		awful.spawn(
-			"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player." .. action
-		)
-	end
-end
-
 -- {{{ Key bindings
 local global_keys = gears.table.join(
 	-- Menubar
@@ -372,10 +355,10 @@ local global_keys = gears.table.join(
 	awful.key({}, "XF86AudioMute", function()
 		awful.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")
 	end),
-	awful.key({}, "XF86AudioPlay", spotify_invoke("PlayPause")),
-	awful.key({}, "XF86AudioStop", spotify_invoke("Pause")),
-	awful.key({}, "XF86AudioPrev", spotify_invoke("Previous")),
-	awful.key({}, "XF86AudioNext", spotify_invoke("Next")),
+	awful.key({}, "XF86AudioPlay", function() awful.spawn("playerctl play-pause") end),
+	awful.key({}, "XF86AudioStop", function() awful.spawn("playerctl pause") end),
+	awful.key({}, "XF86AudioPrev", function() awful.spawn("playerctl previous") end),
+	awful.key({}, "XF86AudioNext", function() awful.spawn("playerctl next") end),
 
 	-- Brightness control
 	awful.key({}, "XF86MonBrightnessUp", function()
@@ -937,6 +920,11 @@ client.connect_signal("manage", function(c)
 		-- Prevent clients from being unreachable after screen count changes.
 		awful.placement.no_offscreen(c)
 	end
+
+	c.shape = function(cr, w, h)
+		local border_radius = 12
+		gears.shape.rounded_rect(cr, w, h, border_radius)
+	end
 end)
 
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
@@ -984,6 +972,11 @@ client.connect_signal("request::titlebars", function(c)
 end)
 
 -- Enable sloppy focus, so that focus follows mouse.
+client.connect_signal("mouse::enter", function(c)
+	c:emit_signal("request::activate", "mouse_enter", { raise = false })
+end)
+
+-- Strict focus, when a client under the mouse changes
 client.connect_signal("mouse::move", function(c)
 	c:emit_signal("request::activate", "mouse_enter", { raise = false })
 end)
