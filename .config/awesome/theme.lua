@@ -66,6 +66,7 @@ theme.taglist_squares_unsel =
 theme.menu_submenu_icon = themes_path .. "default/submenu.png"
 theme.menu_height = 32
 theme.menu_width = 240
+theme.wibar_height = 48
 
 -- You can add as many variables as
 -- you wish and access them by using
