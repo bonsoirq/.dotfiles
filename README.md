@@ -8,16 +8,16 @@ Run `setup.sh`
 
 ### Homebrew
 
-  Running dump:
+Running dump:
 
-  `brew bundle dump --describe --force`
+`brew bundle dump --describe --force`
 
-  Restoring dump:
+Restoring dump:
 
-  `brew bundle`
+`brew bundle`
 
 ### Pacman or Yay
 
-  Running dump:
+Running dump:
 
-  `yay -Q --explicit --unrequired > yayfile`
+`yay -Q --explicit --unrequired > yayfile`

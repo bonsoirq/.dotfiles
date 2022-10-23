@@ -1,0 +1,17 @@
+{
+  "name": "dotfiles",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "prettier:lua": "prettier ./**/*.lua --write"
+  },
+  "keywords": [],
+  "author": "Jarosław Bąk",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@prettier/plugin-lua": "git@github.com:prettier/plugin-lua.git#63d45f57abe20828edda91d068fd957174bbada4",
+    "prettier": "^2.7.1",
+    "prettier-plugin-sh": "^0.12.8"
+  }
+}
