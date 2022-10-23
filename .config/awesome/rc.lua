@@ -420,28 +420,6 @@ local global_keys = gears.table.join(
 		}
 	),
 	awful.key(
-		{ keys.modkey },
-		"p",
-		function()
-			awful.spawn("rofi -show run")
-		end,
-		{
-			description = "Rofi",
-			group = "Apps",
-		}
-	),
-	awful.key(
-		{ keys.modkey, keys.shift },
-		"p",
-		function()
-			awful.spawn("rofimoji")
-		end,
-		{
-			description = "Rofi Emojis",
-			group = "Apps",
-		}
-	),
-	awful.key(
 		{},
 		"XF86Mail",
 		function()
@@ -615,22 +593,22 @@ local global_keys = gears.table.join(
 		{ keys.modkey },
 		"space",
 		function()
-			awful.layout.inc(1)
+			awful.spawn("rofi -show run")
 		end,
 		{
-			description = "select next",
-			group = "layout",
+			description = "rofi",
+			group = "Apps",
 		}
 	),
 	awful.key(
 		{ keys.modkey, keys.shift },
 		"space",
 		function()
-			awful.layout.inc(-1)
+			awful.spawn("rofimoji")
 		end,
 		{
-			description = "select previous",
-			group = "layout",
+			description = "rofimoji",
+			group = "Apps",
 		}
 	),
 
@@ -1006,7 +984,7 @@ client.connect_signal("request::titlebars", function(c)
 end)
 
 -- Enable sloppy focus, so that focus follows mouse.
-client.connect_signal("mouse::enter", function(c)
+client.connect_signal("mouse::move", function(c)
 	c:emit_signal("request::activate", "mouse_enter", { raise = false })
 end)
 
