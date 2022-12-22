@@ -23,9 +23,6 @@ return function(beautiful)
 		rule = { class = "code" },
 		properties = { tag = "code" },
 	}, {
-		rule = { class = "Alacritty" },
-		properties = { tag = "cli" },
-	}, {
 		rule = { class = "Steam" },
 		properties = { tag = "steam" },
 	}, {

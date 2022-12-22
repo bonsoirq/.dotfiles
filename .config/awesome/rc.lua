@@ -59,6 +59,7 @@ do
 end
 
 awesome.connect_signal("startup", function()
+	awful.spawn.once("autorandr -l default")
 	-- Run compositor
 	awful.spawn.once("picom -b")
 	-- Run dropbox
