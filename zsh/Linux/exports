@@ -7,3 +7,10 @@ export PATH="$PNPM_HOME:$PATH"
 
 # use self compiled executables contained in home/bin
 export PATH="$HOME/bin:$PATH"
+
+# python pipenv
+PYTHON_BIN_PATH="$(python3 -m site --user-base)/bin"
+export PATH="$PATH:$PYTHON_BIN_PATH"
+
+# dotnet
+export PATH="$PATH:~/.dotnet/tools"
