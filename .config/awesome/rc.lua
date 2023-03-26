@@ -134,6 +134,7 @@ local mymainmenu = awful.menu({
 		{ "Spotify", "spotify", icon("spotify") },
 		{ "Steam", "steam", icon("steam") },
 		{ "Thunderbird", "thunderbird", icon("thunderbird") },
+		{ "Tor Browser", "tor-browser", icon("tor-browser") },
 		{ "Transmission", "transmission-gtk", icon("transmission") },
 		{ "Virtualbox", "virtualbox", icon("virtualbox") },
 		{ "VLC", "vlc", icon("vlc") },
@@ -785,11 +786,6 @@ client.connect_signal("manage", function(client)
 	if awesome.startup and not client.size_hints.user_position and not client.size_hints.program_position then
 		-- Prevent clients from being unreachable after screen count changes.
 		awful.placement.no_offscreen(client)
-	end
-
-	client.shape = function(cr, width, height)
-		local border_radius = 12
-		gears.shape.rounded_rect(cr, width, height, border_radius)
 	end
 end)
 
