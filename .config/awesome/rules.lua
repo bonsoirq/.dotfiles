@@ -26,6 +26,9 @@ return function(beautiful)
 		rule = { class = "Steam" },
 		properties = { tag = "steam" },
 	}, {
+		rule = { class = "Spotify" },
+		properties = { tag = "music" },
+	}, {
 		rule = { class = "thunderbird" },
 		properties = { tag = "mail" },
 	}, {
@@ -56,5 +59,9 @@ return function(beautiful)
 			type = { "normal", "dialog" },
 		},
 		properties = { titlebars_enabled = false },
+	}, {
+		-- Add titlebars to normal clients and dialogs
+		rule_any = { floating = true },
+		properties = { placement = awful.placement.centered },
 	} }
 end

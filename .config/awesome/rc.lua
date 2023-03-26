@@ -72,8 +72,6 @@ awesome.connect_signal("startup", function()
 	awful.spawn.once(
 		"/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 	)
-
-	toast("connect_signal startup")
 end)
 
 -- Themes define colours, icons, font and wallpapers.
@@ -238,7 +236,10 @@ awful.screen.connect_for_each_screen(function(screen)
 
 	local default_layout = awful.layout.layouts[1]
 	local tags_by_screen =
-		{ { "6", "7", "8", "steam" }, { "web", "code", "cli", "mail", "chat" } }
+		{
+			{ "music", "7", "8", "steam" },
+			{ "web", "code", "cli", "mail", "chat" },
+		}
 
 	awful.tag(tags_by_screen[screen.index], screen, default_layout)
 
