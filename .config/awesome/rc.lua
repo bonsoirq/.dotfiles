@@ -78,27 +78,25 @@ end)
 -- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 beautiful.init(gears.filesystem.get_configuration_dir() .. "theme.lua")
 
--- This is used later as the default terminal and editor to run.
-local editor_cmd = constants.apps.terminal .. " -e " .. constants.apps.editor
-
 -- Table of layouts to cover with awful.layout.inc, order matters.
-awful.layout.layouts =
+local available_layouts =
 	{
 		awful.layout.suit.tile,
 		awful.layout.suit.tile.bottom,
 		awful.layout.suit.floating,
 	}
+awful.layout.layouts = available_layouts
 
 -- Create a launcher widget and a main menu
-local myawesomemenu = { { "hotkeys", function()
+local awesomewm_submenu = { { "Hotkeys", function()
 	hotkeys_popup.show_help(nil, awful.screen.focused())
 end }, {
-	"manual",
+	"Manual",
 	constants.apps.terminal .. " -e man awesome",
 }, {
-	"edit config",
-	editor_cmd .. " " .. awesome.conffile,
-}, { "restart", awesome.restart }, { "quit", function()
+	"Configuration (VS Code)",
+	"code" .. " " .. awesome.conffile,
+}, { "Restart Awesome WM", awesome.restart }, { "Quit Awesome WM", function()
 	awesome.quit()
 end } }
 
@@ -109,9 +107,9 @@ local function icon(name)
 	return base_path .. name .. extension
 end
 
-local mymainmenu = awful.menu({
+local context_menu = awful.menu({
 	items = {
-		{ "awesome", myawesomemenu, icon("distributor-logo-archlinux") },
+		{ "Awesome WM", awesomewm_submenu, icon("start-here-archlinux") },
 		{
 			"Alacritty",
 			constants.apps.terminal,
@@ -143,33 +141,30 @@ local mymainmenu = awful.menu({
 	},
 })
 
-local mylauncher = awful.widget.launcher({
-	image = icon("distributor-logo-archlinux"),
-	menu = mymainmenu,
+local start_button = awful.widget.launcher({
+	image = icon("start-here-archlinux"),
+	menu = context_menu,
 })
 
 -- Menubar configuration
 menubar.utils.terminal = constants.apps.terminal -- Set the terminal for applications that require it
--- }}}
-
 -- Keyboard map indicator and switcher
 local keyboard_layout_widget = awful.widget.keyboardlayout()
 
--- {{{ Wibar
 -- Create a textclock widget
 local clock_widget = wibox.widget.textclock()
 
 -- Create a wibox for each screen and add it
-local taglist_buttons = gears.table.join(
-	awful.button({}, constants.mouse.left_click, function(t)
-		t:view_only()
+local workspace_buttons = gears.table.join(
+	awful.button({}, constants.mouse.left_click, function(workspace)
+		workspace:view_only()
 	end),
 	awful.button(
 		{ constants.keys.modkey },
 		constants.mouse.left_click,
-		function(t)
+		function(workspace)
 			if client.focus then
-				client.focus:move_to_tag(t)
+				client.focus:move_to_tag(workspace)
 			end
 		end
 	),
@@ -177,17 +172,17 @@ local taglist_buttons = gears.table.join(
 	awful.button(
 		{ constants.keys.modkey },
 		constants.mouse.right_click,
-		function(t)
+		function(workspace)
 			if client.focus then
-				client.focus:toggle_tag(t)
+				client.focus:toggle_tag(workspace)
 			end
 		end
 	),
-	awful.button({}, constants.mouse.scroll_up, function(t)
-		awful.tag.viewnext(t.screen)
+	awful.button({}, constants.mouse.scroll_up, function(workspace)
+		awful.tag.viewnext(workspace.screen)
 	end),
-	awful.button({}, constants.mouse.scroll_down, function(t)
-		awful.tag.viewprev(t.screen)
+	awful.button({}, constants.mouse.scroll_down, function(workspace)
+		awful.tag.viewprev(workspace.screen)
 	end)
 )
 
@@ -221,7 +216,7 @@ screen.connect_signal("property::geometry", set_wallpaper)
 
 awful.screen.connect_for_each_screen(function(screen)
 
--- Each screen has its own tag table.
+-- Each screen has its own workspace table.
 
 -- Create a promptbox for each screen
 -- Create an imagebox widget which will contain an icon indicating which layout we're using.
@@ -238,15 +233,15 @@ awful.screen.connect_for_each_screen(function(screen)
 	local default_layout = awful.layout.layouts[1]
 	local tags_by_screen =
 		{
-			{ "music", "7", "8", "steam" },
+			{ "music", "other I", "other II", "steam" },
 			{ "web", "code", "cli", "mail", "chat" },
 		}
 
 	awful.tag(tags_by_screen[screen.index], screen, default_layout)
 
-	screen.mypromptbox = awful.widget.prompt()
-	screen.mylayoutbox = awful.widget.layoutbox(screen)
-	screen.mylayoutbox:buttons(
+	screen.prompt = awful.widget.prompt()
+	screen.layout_switcher = awful.widget.layoutbox(screen)
+	screen.layout_switcher:buttons(
 		gears.table.join(
 			awful.button({}, constants.mouse.left_click, function()
 				awful.layout.inc(1)
@@ -262,38 +257,38 @@ awful.screen.connect_for_each_screen(function(screen)
 			end)
 		)
 	)
-	screen.mytaglist = awful.widget.taglist{
+	screen.workspaces = awful.widget.taglist{
 		screen = screen,
 		filter = awful.widget.taglist.filter.all,
-		buttons = taglist_buttons,
+		buttons = workspace_buttons,
 	}
 
-	screen.mytasklist = awful.widget.tasklist{
+	screen.tasklist = awful.widget.tasklist{
 		screen = screen,
 		filter = awful.widget.tasklist.filter.currenttags,
 		buttons = tasklist_buttons,
 	}
 
-	screen.mywibox = awful.wibar({
+	screen.panel = awful.wibar({
 		position = "top",
 		screen = screen,
 	})
 
-	screen.mywibox:setup{
+	screen.panel:setup{
 		layout = wibox.layout.align.horizontal,
 		{
 			layout = wibox.layout.fixed.horizontal,
-			mylauncher,
-			screen.mytaglist,
-			screen.mypromptbox,
+			start_button,
+			screen.workspaces,
+			screen.prompt,
 		},
-		screen.mytasklist,
+		screen.tasklist,
 		{
 			layout = wibox.layout.fixed.horizontal,
 			keyboard_layout_widget,
 			wibox.widget.systray(),
 			clock_widget,
-			screen.mylayoutbox,
+			screen.layout_switcher,
 		},
 	}
 end)
@@ -303,7 +298,7 @@ end)
 root.buttons(
 	gears.table.join(
 		awful.button({}, constants.mouse.right_click, function()
-			mymainmenu:toggle()
+			context_menu:toggle()
 		end),
 		awful.button({}, constants.mouse.scroll_up, awful.tag.viewnext),
 		awful.button({}, constants.mouse.scroll_down, awful.tag.viewprev)
@@ -322,15 +317,15 @@ local global_keys = gears.table.join(
 	}),
 	awful.key({ constants.keys.modkey }, "Left", awful.tag.viewprev, {
 		description = "view previous",
-		group = "tag",
+		group = "workspace",
 	}),
 	awful.key({ constants.keys.modkey }, "Right", awful.tag.viewnext, {
 		description = "view next",
-		group = "tag",
+		group = "workspace",
 	}),
 	awful.key({ constants.keys.modkey }, "Escape", awful.tag.history.restore, {
 		description = "go back",
-		group = "tag",
+		group = "workspace",
 	}),
 
 	awful.key(
@@ -359,7 +354,7 @@ local global_keys = gears.table.join(
 		{ constants.keys.modkey },
 		"w",
 		function()
-			mymainmenu:show()
+			context_menu:show()
 		end,
 		{
 			description = "show main menu",
@@ -696,55 +691,55 @@ local global_keys = gears.table.join(
 -- This should map on the top row of your keyboard, usually 1 to 9.
 for i = 1, 9 do
 	global_keys = gears.table.join(
-		-- Toggle tag on focused client.
+		-- Toggle workspace on focused client.
 		global_keys,
-		-- View tag only.
+		-- View workspace only.
 		awful.key(
 			{ constants.keys.modkey },
 			"#" .. i + 9,
 			function()
 				local screen = awful.screen.focused()
-				local tag = screen.tags[i]
-				if tag then
-					tag:view_only()
+				local workspace = screen.tags[i]
+				if workspace then
+					workspace:view_only()
 				end
 			end,
 			{
-				description = "view tag #" .. i,
-				group = "tag",
+				description = "view workspace #" .. i,
+				group = "workspace",
 			}
 		),
-		-- Toggle tag display.
+		-- Toggle workspace display.
 		awful.key(
 			{ constants.keys.modkey, constants.keys.ctrl },
 			"#" .. i + 9,
 			function()
 				local screen = awful.screen.focused()
-				local tag = screen.tags[i]
-				if tag then
-					awful.tag.viewtoggle(tag)
+				local workspace = screen.tags[i]
+				if workspace then
+					awful.tag.viewtoggle(workspace)
 				end
 			end,
 			{
-				description = "toggle tag #" .. i,
-				group = "tag",
+				description = "toggle workspace #" .. i,
+				group = "workspace",
 			}
 		),
-		-- Move client to tag.
+		-- Move client to workspace.
 		awful.key(
 			{ constants.keys.modkey, constants.keys.shift },
 			"#" .. i + 9,
 			function()
 				if client.focus then
-					local tag = client.focus.screen.tags[i]
-					if tag then
-						client.focus:move_to_tag(tag)
+					local workspace = client.focus.screen.tags[i]
+					if workspace then
+						client.focus:move_to_tag(workspace)
 					end
 				end
 			end,
 			{
-				description = "move focused client to tag #" .. i,
-				group = "tag",
+				description = "move focused client to workspace #" .. i,
+				group = "workspace",
 			}
 		),
 		awful.key(
@@ -756,15 +751,15 @@ for i = 1, 9 do
 			"#" .. i + 9,
 			function()
 				if client.focus then
-					local tag = client.focus.screen.tags[i]
-					if tag then
-						client.focus:toggle_tag(tag)
+					local workspace = client.focus.screen.tags[i]
+					if workspace then
+						client.focus:toggle_tag(workspace)
 					end
 				end
 			end,
 			{
-				description = "toggle focused client on tag #" .. i,
-				group = "tag",
+				description = "toggle focused client on workspace #" .. i,
+				group = "workspace",
 			}
 		)
 	)

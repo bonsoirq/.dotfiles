@@ -11,7 +11,7 @@
   "private": true,
   "devDependencies": {
     "@prettier/plugin-lua": "git@github.com:prettier/plugin-lua.git#63d45f57abe20828edda91d068fd957174bbada4",
-    "prettier": "^2.7.1",
+    "prettier": "^2.8.7",
     "prettier-plugin-sh": "^0.12.8"
   }
 }
