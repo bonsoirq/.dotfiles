@@ -15,13 +15,13 @@ eval "$(pyenv init --path)"
 # the following to ~/.zshrc:
 
 eval "$(pyenv init -)"
-export PATH="$HOME/.poetry/bin:$PATH"
+# export PATH="$HOME/.poetry/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # user-compiled binaries
 export PATH="$HOME/bin:$PATH"
 
 export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
 
-
-export PNPM_HOME="/Users/$(whoami)/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
