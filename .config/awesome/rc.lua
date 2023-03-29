@@ -18,6 +18,8 @@ local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 local rules = require("rules")
 local xrandr = require("xrandr")
+local workspaces = require("workspaces")
+
 
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
@@ -231,13 +233,9 @@ awful.screen.connect_for_each_screen(function(screen)
 	set_wallpaper()
 
 	local default_layout = awful.layout.layouts[1]
-	local tags_by_screen =
-		{
-			{ "music", "other I", "other II", "steam" },
-			{ "web", "code", "cli", "mail", "chat" },
-		}
+	local workspaces_for_screen = workspaces.by_screen[screen.index]
 
-	awful.tag(tags_by_screen[screen.index], screen, default_layout)
+	awful.tag(workspaces_for_screen, screen, default_layout)
 
 	screen.prompt = awful.widget.prompt()
 	screen.layout_switcher = awful.widget.layoutbox(screen)
@@ -247,12 +245,6 @@ awful.screen.connect_for_each_screen(function(screen)
 				awful.layout.inc(1)
 			end),
 			awful.button({}, constants.mouse.right_click, function()
-				awful.layout.inc(-1)
-			end),
-			awful.button({}, constants.mouse.scroll_up, function()
-				awful.layout.inc(1)
-			end),
-			awful.button({}, constants.mouse.scroll_down, function()
 				awful.layout.inc(-1)
 			end)
 		)
