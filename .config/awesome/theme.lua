@@ -14,26 +14,26 @@ local theme = {}
 
 theme.font = "Google Sans 10"
 theme.master_width_factor = 1 / constants.math.phi
-theme.black = "#202124"
+
 theme.transparent = "#00000000"
-theme.bg_normal = "#F6F8FC"
-theme.bg_focus = "#D3E3FD"
-theme.bg_urgent = "#D32F2F"
-theme.bg_minimize = "#353535"
+theme.bg_normal = "#222222"
+theme.bg_focus = "#535d6c"
+theme.bg_urgent = "#ff0000"
+theme.bg_minimize = "#444444"
 theme.bg_systray = theme.bg_normal
 
-theme.fg_normal = "#202124"
-theme.fg_focus = "#041E49"
-theme.fg_urgent = "#041E49"
-theme.fg_minimize = "#041E49"
+theme.fg_normal = "#aaaaaa"
+theme.fg_focus = "#ffffff"
+theme.fg_urgent = "#ffffff"
+theme.fg_minimize = "#ffffff"
 
-theme.useless_gap = dpi(4)
+theme.useless_gap = dpi(2)
 theme.border_width = dpi(0)
 theme.border_radius = 0
 theme.border_normal = theme.transparent
-theme.border_focus = "#BDC1C6"
-theme.border_marked = "#D32F2F"
-
+theme.border_normal = "#000000"
+theme.border_focus = "#535d6c"
+theme.border_marked = "#91231c"
 -- There are other variable sets
 -- overriding the default one when
 -- defined, the sets are:
@@ -64,9 +64,9 @@ theme.taglist_squares_unsel =
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
 theme.menu_submenu_icon = themes_path .. "default/submenu.png"
-theme.menu_height = 32
-theme.menu_width = 240
-theme.wibar_height = 48
+theme.menu_height = 16
+theme.menu_width = 128
+theme.wibar_height = 16
 
 -- You can add as many variables as
 -- you wish and access them by using

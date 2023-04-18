@@ -20,7 +20,6 @@ local rules = require("rules")
 local xrandr = require("xrandr")
 local workspaces = require("workspaces")
 
-
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
@@ -111,7 +110,7 @@ end
 
 local context_menu = awful.menu({
 	items = {
-		{ "Awesome WM", awesomewm_submenu, icon("start-here-archlinux") },
+		{ "Awesome WM", awesomewm_submenu, beautiful.awesome_icon },
 		{
 			"Alacritty",
 			constants.apps.terminal,
@@ -144,7 +143,7 @@ local context_menu = awful.menu({
 })
 
 local start_button = awful.widget.launcher({
-	image = icon("start-here-archlinux"),
+	image = beautiful.awesome_icon,
 	menu = context_menu,
 })
 
@@ -309,15 +308,15 @@ local global_keys = gears.table.join(
 	}),
 	awful.key({ constants.keys.modkey }, "Left", awful.tag.viewprev, {
 		description = "view previous",
-		group = "workspace",
+		group = "Workspace",
 	}),
 	awful.key({ constants.keys.modkey }, "Right", awful.tag.viewnext, {
 		description = "view next",
-		group = "workspace",
+		group = "Workspace",
 	}),
 	awful.key({ constants.keys.modkey }, "Escape", awful.tag.history.restore, {
 		description = "go back",
-		group = "workspace",
+		group = "Workspace",
 	}),
 
 	awful.key(
@@ -698,7 +697,7 @@ for i = 1, 9 do
 			end,
 			{
 				description = "view workspace #" .. i,
-				group = "workspace",
+				group = "Workspace",
 			}
 		),
 		-- Toggle workspace display.
@@ -714,7 +713,7 @@ for i = 1, 9 do
 			end,
 			{
 				description = "toggle workspace #" .. i,
-				group = "workspace",
+				group = "Workspace",
 			}
 		),
 		-- Move client to workspace.
@@ -731,7 +730,7 @@ for i = 1, 9 do
 			end,
 			{
 				description = "move focused client to workspace #" .. i,
-				group = "workspace",
+				group = "Workspace",
 			}
 		),
 		awful.key(
@@ -751,7 +750,7 @@ for i = 1, 9 do
 			end,
 			{
 				description = "toggle focused client on workspace #" .. i,
-				group = "workspace",
+				group = "Workspace",
 			}
 		)
 	)
@@ -832,11 +831,4 @@ end)
 -- Strict focus, when a client under the mouse changes
 client.connect_signal("mouse::move", function(client)
 	client:emit_signal("request::activate", "mouse_enter", { raise = false })
-end)
-
-client.connect_signal("focus", function(client)
-	client.border_color = beautiful.border_focus
-end)
-client.connect_signal("unfocus", function(client)
-	client.border_color = beautiful.border_normal
 end)
