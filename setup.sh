@@ -12,18 +12,18 @@ vim +PlugInstall +qall
 [ ! -d "$HOME/.zsh-vi-mode" ] && git clone https://github.com/jeffreytse/zsh-vi-mode.git $HOME/.zsh-vi-mode
 
 # Link rc files
-rm -rf .gitconfig .zshrc .nvmrc .vimrc .config/alacritty \
+rm -rf ~/{.gitconfig,.zshrc,.nvmrc,.vimrc} ~/.config/{alacritty,vifm} \
   && ln -s ~/.dotfiles/{.gitconfig,.zshrc,.nvmrc,.vimrc} ~/
-ln -s ~/.dotfiles/.config/alacritty ~/.config/alacritty
+ln -s ~/.dotfiles/.config/{alacritty,vifm} ~/.config
 
 if [ $(uname) = 'Linux' ]; then
-  rm -rf .xinitrc .Xresources .zprofile \
-    .config/{awesome,cava,i3,picom,polybar,rofi,vifm} \
+  rm -rf ~/{.xinitrc,.Xresources,.zprofile} \
+    .config/{awesome,cava,i3,picom,polybar,rofi} \
     && ln -s ~/.dotfiles/{.xinitrc,.Xresources,.zprofile} ~/
-  ln -s ~/.dotfiles/.config/{awesome,cava,i3,picom,polybar,rofi,vifm} ~/.config
+  ln -s ~/.dotfiles/.config/{awesome,cava,i3,picom,polybar,rofi} ~/.config
 fi
 
 if [ $(uname) = 'Darwin' ]; then
-  rm -rf .config/skhd \
+  rm -rf ~/.config/skhd \
     && ln -s ~/.dotfiles/.config/skhd ~/.config/skhd
 fi

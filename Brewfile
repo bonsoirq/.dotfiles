@@ -16,8 +16,8 @@ brew "git"
 brew "gnupg"
 # Improved top (interactive process viewer)
 brew "htop"
-# Library for reading RAW files from digital photo cameras
-brew "libraw"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
 # Mac App Store command-line interface
 brew "mas"
 # Open source relational database management system
@@ -30,6 +30,8 @@ brew "postgresql@14"
 brew "pyenv"
 # Persistent key-value database, with built-in net interface
 brew "redis"
+# Code-search similar to ack
+brew "the_silver_searcher"
 # Vi 'workalike' with many additional features
 brew "vim"
 # UNIX shell (command interpreter)
@@ -52,13 +54,11 @@ cask "audacity"
 cask "bitwarden"
 # Scriptable scratchpad for developers
 cask "boop"
-# E-books management software
-cask "calibre"
 # Voice and text chat software
 cask "discord"
 # App to build and share containerized applications and microservices
 cask "docker"
-# Draw.io is free online diagram software
+# Online diagram software
 cask "drawio"
 # Client for the Dropbox cloud storage service
 cask "dropbox"
@@ -70,22 +70,18 @@ cask "flameshot"
 cask "gimp"
 # Web browser
 cask "google-chrome"
-# Terminal emulator as alternative to Apple's Terminal app
-cask "iterm2"
 # End-to-end encryption software
 cask "keybase"
 # Clipboard manager
 cask "maccy"
-# Store credentials in a single place and log in on any device, even when offline
-cask "nordpass"
 # App to write, plan, collaborate, and get organized
 cask "notion"
 # Open-source software for live streaming and screen recording
 cask "obs"
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
 # Collaboration platform for API development
 cask "postman"
-# News reader with flexible settings
-cask "raven-reader"
 # Team communication and collaboration software
 cask "slack"
 # Music streaming service
@@ -102,12 +98,58 @@ cask "visual-studio-code"
 cask "vlc"
 # Video communication and virtual meeting platform
 cask "zoom"
-mas "Brother iPrint&Scan", id: 1193539993
-mas "com.echodot.Red", id: 1491764008
-mas "GarageBand", id: 682658836
 mas "HazeOver", id: 430798174
 mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Pandan", id: 1569600264
 mas "Todoist", id: 585829637
+vscode "anseki.vscode-color"
+vscode "bierner.emojisense"
+vscode "BriteSnow.vscode-toggle-quotes"
+vscode "Cardinal90.multi-cursor-case-preserve"
+vscode "christian-kohler.npm-intellisense"
+vscode "dbaeumer.vscode-eslint"
+vscode "dlasagno.rasi"
+vscode "donjayamanne.githistory"
+vscode "DotJoshJohnson.xml"
+vscode "eamodio.gitlens"
+vscode "earthly.earthfile-syntax-highlighting"
+vscode "ecmel.vscode-html-css"
+vscode "Equinusocio.vsc-community-material-theme"
+vscode "Equinusocio.vsc-material-theme"
+vscode "equinusocio.vsc-material-theme-icons"
+vscode "esbenp.prettier-vscode"
+vscode "GitHub.vscode-pull-request-github"
+vscode "GraphQL.vscode-graphql"
+vscode "GraphQL.vscode-graphql-execution"
+vscode "GraphQL.vscode-graphql-syntax"
+vscode "Ionide.Ionide-fsharp"
+vscode "mikestead.dotenv"
+vscode "ms-azuretools.vscode-docker"
+vscode "ms-dotnettools.csharp"
+vscode "ms-vscode-remote.remote-containers"
+vscode "ms-vscode-remote.remote-ssh"
+vscode "ms-vscode-remote.remote-ssh-edit"
+vscode "ms-vscode-remote.vscode-remote-extensionpack"
+vscode "ms-vscode.hexeditor"
+vscode "ms-vscode.remote-explorer"
+vscode "ms-vscode.remote-server"
+vscode "ms-vsliveshare.vsliveshare"
+vscode "mtxr.sqltools"
+vscode "naumovs.color-highlight"
+vscode "oderwat.indent-rainbow"
+vscode "pflannery.vscode-versionlens"
+vscode "redhat.vscode-xml"
+vscode "rubbersheep.gi"
+vscode "styled-components.vscode-styled-components"
+vscode "sumneko.lua"
+vscode "SzymonZak.daedalus"
+vscode "Tyriar.lorem-ipsum"
+vscode "usernamehw.errorlens"
+vscode "VisualStudioExptTeam.intellicode-api-usage-examples"
+vscode "VisualStudioExptTeam.vscodeintellicode"
+vscode "vivaxy.vscode-conventional-commits"
+vscode "wmaurer.change-case"
+vscode "yoavbls.pretty-ts-errors"
+vscode "yzhang.markdown-all-in-one"
