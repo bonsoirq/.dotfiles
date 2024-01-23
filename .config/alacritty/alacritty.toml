@@ -1,0 +1,32 @@
+[colors.bright]
+black = "#303030"
+blue = "#6182B8"
+cyan = "#39ADB5"
+green = "#91B859"
+magenta = "#7C4DFF"
+red = "#FF5370"
+white = "#FFFFFF"
+yellow = "#FFB62C"
+
+[colors.normal]
+black = "#212121"
+blue = "#82AAFF"
+cyan = "#89DDFF"
+green = "#C3E88D"
+magenta = "#C792EA"
+red = "#F07178"
+white = "#EEFFFF"
+yellow = "#FFCB6B"
+
+[colors.primary]
+background = "#212121"
+foreground = "#FAFAFA"
+
+[env]
+WINIT_X11_SCALE_FACTOR = "1.0"
+
+[font]
+size = 11.0
+
+[font.normal]
+family = "JetBrainsMono NF"
