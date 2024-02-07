@@ -17,10 +17,12 @@ rm -rf ~/{.gitconfig,.zshrc,.nvmrc,.vimrc} ~/.config/{alacritty,vifm} \
 ln -s ~/.dotfiles/.config/{alacritty,vifm} ~/.config
 
 if [ $(uname) = 'Linux' ]; then
+  rm -rf ~/.vscode/argv.json
   rm -rf ~/{.xinitrc,.Xresources,.zprofile} \
     .config/{awesome,cava,i3,picom,polybar,rofi} \
     && ln -s ~/.dotfiles/{.xinitrc,.Xresources,.zprofile} ~/
   ln -s ~/.dotfiles/.config/{awesome,cava,i3,picom,polybar,rofi} ~/.config
+  ln -s ~/.dotfiles/.vscode/argv.json ~/.vscode
 fi
 
 if [ $(uname) = 'Darwin' ]; then
