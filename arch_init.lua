@@ -1,7 +1,7 @@
 #!/bin/lua
 
 is_installed = function (packageName)
-    return os.execute("pacman -Qi " .. packageName)
+    return os.execute("pacman -Q " .. packageName)
 end
 
 pacman_install = function (packageName)
@@ -27,7 +27,12 @@ end
 
 installed_packages = {
     "bitwarden",
+    "dex",
+    "gnome-keyring",
     "google-chrome",
+    "inter-font",
+    "nvm",
+    "pyenv",
     "rofi",
     "ttf-jetbrains-mono-nerd",
     "vifm",
@@ -44,4 +49,3 @@ zsh_bin_path = "/usr/bin/zsh"
 if os.getenv("SHELL") ~= zsh_bin_path then
     os.execute("chsh -s " .. zsh_bin_path)
 end
-
