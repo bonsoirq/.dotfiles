@@ -30,6 +30,7 @@ set softtabstop =4         " Tab key indents by 4 spaces.
 set shiftwidth  =4         " >> indents by 4 spaces.
 set shiftround             " >> indents to next multiple of 'shiftwidth'.
 set number                 " Show line number.
+set relativenumber         " Show relative line number.
 
 " set background  =dark
 set backspace   =indent,eol,start  " Make backspace work as you would expect.
@@ -53,6 +54,7 @@ set cursorline             " Find the current line quickly.
 set wrapscan               " Searches wrap around end-of-file.
 set report      =0         " Always report changed lines.
 set synmaxcol   =200       " Only highlight the first 200 columns.
+set colorcolumn =80
 
 set list                   " Show non-printable characters.
 if has('multi_byte') && &encoding ==# 'utf-8'
@@ -78,3 +80,6 @@ set updatecount =100
 set undofile
 set undodir     =$HOME/.vim/files/undo/
 set viminfo     ='100,n$HOME/.vim/files/viminfo
+
+autocmd VimEnter * NERDTree | wincmd p
+let NERDTreeShowHidden=1

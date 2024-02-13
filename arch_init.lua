@@ -22,7 +22,6 @@ if not is_installed("yay") then
     os.execute("rm -rf yay-bin")
 end
 
-
 yay_install_missing = function (packageName)
     if not is_installed(packageName) then
         yay_install(packageName)
@@ -35,6 +34,7 @@ dependencies = {
     "gnome-keyring",
     "google-chrome",
     "inter-font",
+    "man",
     "nvm",
     "pyenv",
     "rofi",
@@ -43,8 +43,6 @@ dependencies = {
     "visual-studio-code-bin",
     "zsh",
 }
-
-
 
 for i, packageName in ipairs(dependencies) do
   local missing_dependencies = {}
