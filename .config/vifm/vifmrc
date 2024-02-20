@@ -1,4 +1,5 @@
 set dotfiles
+set relativenumber
 
 " VIFM COLORS
 " Paper Theme c/o Samuel Sinclair
