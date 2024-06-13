@@ -2,15 +2,12 @@
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 
 " Declare the list of plugins.
-Plug 'kaicataldo/material.vim', { 'branch': 'main' }
+Plug 'sainnhe/sonokai'
 Plug 'dense-analysis/ale'
-Plug 'preservim/nerdtree'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
-let g:material_terminal_italics = 1
-" let g:material_theme_style = 'palenight'
-colorscheme material
+colorscheme sonokai
 " Based on: 
 " https://github.com/mhinz/vim-galore/blob/master/static/minimal-vimrc.vim
 "
@@ -81,5 +78,3 @@ set undofile
 set undodir     =$HOME/.vim/files/undo/
 set viminfo     ='100,n$HOME/.vim/files/viminfo
 
-autocmd VimEnter * NERDTree | wincmd p
-let NERDTreeShowHidden=1
