@@ -20,9 +20,9 @@ ln -s ~/.dotfiles/.config/{alacritty,vifm,nvim} ~/.config
 
 if [ $(uname) = 'Linux' ]; then
   rm -rf ~/{.xinitrc,.Xresources,.zprofile} \
-    ~/.config/{awesome,cava,i3,picom,polybar,rofi} \
+    ~/.config/{awesome,cava,i3,picom,polybar,rofi,hypr} \
     && ln -s ~/.dotfiles/{.xinitrc,.Xresources,.zprofile} ~/
-  ln -s ~/.dotfiles/.config/{awesome,cava,i3,picom,polybar,rofi} ~/.config
+  ln -s ~/.dotfiles/.config/{awesome,cava,i3,picom,polybar,rofi,hypr} ~/.config
 fi
 
 if [ $(uname) = 'Darwin' ]; then
