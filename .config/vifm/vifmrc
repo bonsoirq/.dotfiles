@@ -1,5 +1,9 @@
+" Show hidden files
 set dotfiles
+" Show relative line numbers
 set relativenumber
+" Use nvim as default editor - $EDITOR doesn't work
+set vicmd=nvim
 
 " VIFM COLORS
 " Paper Theme c/o Samuel Sinclair
