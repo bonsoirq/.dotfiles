@@ -2,12 +2,12 @@
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 
 " Declare the list of plugins.
-Plug 'sainnhe/sonokai'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'dense-analysis/ale'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
-colorscheme sonokai
+colorscheme catppuccin_mocha
 " Based on: 
 " https://github.com/mhinz/vim-galore/blob/master/static/minimal-vimrc.vim
 "
