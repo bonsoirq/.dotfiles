@@ -3,6 +3,7 @@
 import os
 from os import path
 from subprocess import run
+from pathlib import Path
 
 def normalize_path(file_path):
   return path.normpath(path.expanduser(file_path))
@@ -38,12 +39,16 @@ COMMON_FILES = [
   '.config/alacritty',
   '.config/vifm',
   '.config/nvim',
+  '.config/kitty',
 ]
 
 def remove_file_if_exists(file_path):
-  if path.exists(file_path):
-    os.remove(file_path)
-    
+  path = Path(file_path)  
+  if path.is_file() or path.is_symlink():
+    os.remove(file_path) 
+    return
+  if path.is_dir():
+    os.rmdir(file_path)
 
 def create_symlink(from_path, to_path):
   print("Creating symlink from", from_path, 'to', to_path)
