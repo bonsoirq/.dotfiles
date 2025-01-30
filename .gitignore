@@ -1,5 +1,5 @@
 .vim
 .config/vifm/vifminfo.json
-.config/nvim
 .vscode
 node_modules
+.config/cava/shaders/
