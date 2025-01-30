@@ -1,19 +1,24 @@
+# use self compiled executables contained in home/bin
+export PATH="$PATH:$HOME/bin"
+
 # pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PATH:$PNPM_HOME" ;;
+esac
 # pnpm end
 
-# use self compiled executables contained in home/bin
-export PATH="$HOME/bin:$PATH"
-
-# python pipenv
+# python pyenv
 PYTHON_BIN_PATH="$(python3 -m site --user-base)/bin"
 export PATH="$PATH:$PYTHON_BIN_PATH"
 
 # dotnet
-export PATH="$PATH:~/.dotnet/tools"
+export PATH="$PATH:$HOME/.dotnet/tools"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export BROWSER=firefox
