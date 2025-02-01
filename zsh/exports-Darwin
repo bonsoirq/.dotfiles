@@ -1,3 +1,10 @@
+append_path () {
+  case ":$PATH:" in
+    *":$1:"*) ;;
+    *) export PATH="$PATH:$1" ;;
+  esac
+}
+
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
@@ -8,20 +15,19 @@ export NVM_DIR="$HOME/.nvm"
 # to ~/.profile and ~/.zprofile:
 
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
+append_path "$PYENV_ROOT/bin"
 eval "$(pyenv init --path)"
 
 # Load pyenv into the shell by adding
 # the following to ~/.zshrc:
 
 eval "$(pyenv init -)"
-# export PATH="$HOME/.poetry/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
+append_path "$HOME/.local/bin"
 
 # user-compiled binaries
-export PATH="$HOME/bin:$PATH"
+append_path "$HOME/bin"
 
 export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
 
 export PNPM_HOME="$HOME/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
+append_path $PNPM_HOME

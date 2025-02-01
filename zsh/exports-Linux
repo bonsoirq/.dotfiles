@@ -1,20 +1,24 @@
+append_path () {
+  case ":$PATH:" in
+    *":$1:"*) ;;
+    *) export PATH="$PATH:$1" ;;
+  esac
+}
+
 # use self compiled executables contained in home/bin
-export PATH="$PATH:$HOME/bin"
+append_path "$HOME/bin"
 
 # pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PATH:$PNPM_HOME" ;;
-esac
+append_path $PNPM_HOME
 # pnpm end
 
 # python pyenv
 PYTHON_BIN_PATH="$(python3 -m site --user-base)/bin"
-export PATH="$PATH:$PYTHON_BIN_PATH"
+append_path $PYTHON_BIN_PATH
 
 # dotnet
-export PATH="$PATH:$HOME/.dotnet/tools"
+append_path "$HOME/.dotnet/tools"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
@@ -22,3 +26,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export BROWSER=firefox
+

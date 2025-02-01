@@ -10,4 +10,4 @@ autoload colors && colors
 
 # Set up the prompt (with git branch name)
 setopt PROMPT_SUBST
-PROMPT='> %~ %{$fg[green]%}${vcs_info_msg_0_} %{$reset_color%}'
+PROMPT='%n@%m:%~ %? 🜛 %{$fg[green]%}${vcs_info_msg_0_} %{$reset_color%}'
