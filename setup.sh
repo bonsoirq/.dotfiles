@@ -14,15 +14,15 @@ vim +PlugInstall +qall
 [ ! -d "$HOME/.config/nvim" ] && git clone https://github.com/LazyVim/starter $HOME/.dotfiles/.config/nvim
 
 # Link rc files
-rm -rf ~/{.gitconfig,.zshrc,.nvmrc,.vimrc} ~/.config/{alacritty,vifm,nvim} \
+rm -rf ~/{.gitconfig,.zshrc,.nvmrc,.vimrc} ~/.config/{alacritty,cava,vifm,nvim,kitty} \
   && ln -s ~/.dotfiles/{.gitconfig,.zshrc,.nvmrc,.vimrc} ~/
-ln -s ~/.dotfiles/.config/{alacritty,vifm,nvim} ~/.config
+ln -s ~/.dotfiles/.config/{alacritty,cava,vifm,nvim,kitty} ~/.config
 
 if [ $(uname) = 'Linux' ]; then
   rm -rf ~/{.xinitrc,.Xresources,.zprofile} \
-    ~/.config/{awesome,cava,i3,picom,polybar,rofi,hypr} \
+    ~/.config/{awesome,i3,picom,polybar,rofi,hypr} \
     && ln -s ~/.dotfiles/{.xinitrc,.Xresources,.zprofile} ~/
-  ln -s ~/.dotfiles/.config/{awesome,cava,i3,picom,polybar,rofi,hypr} ~/.config
+  ln -s ~/.dotfiles/.config/{awesome,i3,picom,polybar,rofi,hypr} ~/.config
 fi
 
 if [ $(uname) = 'Darwin' ]; then
