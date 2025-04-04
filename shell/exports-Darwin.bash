@@ -1,10 +1,3 @@
-append_path () {
-  case ":$PATH:" in
-    *":$1:"*) ;;
-    *) export PATH="$PATH:$1" ;;
-  esac
-}
-
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm

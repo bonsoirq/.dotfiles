@@ -12,5 +12,3 @@ zstyle :compinstall filename '/home/bonsoirq/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
-
-export EDITOR=nvim
