@@ -2,7 +2,13 @@
 
 ## Setup
 
-Run `setup.sh`
+Run `setup.bash`
+
+## Dev dependencies
+
+[StyLua](https://github.com/JohnnyMorganz/StyLua)
+[shfmt](https://github.com/mvdan/sh)
+
 
 ## Package manager dumps
 
