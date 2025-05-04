@@ -1,2 +1,2 @@
 #!/usr/bin/env fish
-stylua .**/*.lua
+stylua $(fd --hidden --extension lua --full-path ~/.dotfiles)
