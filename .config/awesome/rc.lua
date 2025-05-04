@@ -299,7 +299,8 @@ awful.keyboard.append_global_keybindings({
 		group = "launcher",
 	}),
 	awful.key({ modkey }, "r", function()
-		awful.screen.focused().mypromptbox:run()
+		awful.spawn('rofi -show combi -modes combi -combi-modes "window,drun,run"')
+		-- awful.screen.focused().mypromptbox:run()
 	end, {
 		description = "run prompt",
 		group = "launcher",

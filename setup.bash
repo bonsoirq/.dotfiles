@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+# Check if stow is installed
+if [ ! -e $(command -v stow) ]; then
+	echo 'stow command not found, install it first'
+	exit 1
+fi
+
 # Populate vim config directory with necessary directories.
 mkdir -p ~/.dotfiles/.vim/files/{backup,info,swap}
 
@@ -11,21 +17,18 @@ vim +PlugInstall +qall
 # Download zsh-vi-mode if not downloaded already
 [ ! -d "$HOME/.zsh-vi-mode" ] && git clone https://github.com/jeffreytse/zsh-vi-mode.git $HOME/.zsh-vi-mode
 # Download lazyvim if not downloaded already
-[ ! -d "$HOME/.config/nvim" ] && git clone https://github.com/LazyVim/starter $HOME/.dotfiles/.config/nvim
+[ ! -d "$HOME/.config/nvim" ] && git clone https://github.com/LazyVim/starter $HOME/.dotfiles/neovim/.config/nvim
+
+cd ~/.dotfiles
+echo "Setting stow directory to $PWD"
 
 # Link rc files
-rm -rf ~/{.bashrc,.gitconfig,.zshrc,.nvmrc,.vimrc} ~/.config/{alacritty,cava,fish,vifm,nvim} &&
-	ln -s ~/.dotfiles/{.bashrc,.gitconfig,.zshrc,.nvmrc,.vimrc} ~/
-ln -s ~/.dotfiles/.config/{alacritty,cava,fish,vifm,nvim} ~/.config
+stow {alacritty,cava,fish,vifm,neovim,bash,git,zsh,nvm,vim}
 
 if [ $(uname) = 'Linux' ]; then
-	rm -rf ~/{.xinitrc,.Xresources,.zprofile} \
-		~/.config/{awesome,i3,picom,polybar,rofi,hypr} &&
-		ln -s ~/.dotfiles/{.xinitrc,.Xresources,.zprofile} ~/
-	ln -s ~/.dotfiles/.config/{awesome,i3,picom,polybar,rofi,hypr} ~/.config
+	stow {x11,awesomewm,i3wm,picom,polybar,rofi,hyprland}
 fi
 
 if [ $(uname) = 'Darwin' ]; then
-	rm -rf ~/.config/skhd &&
-		ln -s ~/.dotfiles/.config/skhd ~/.config/skhd
+	stow {skhd}
 fi
