@@ -19,16 +19,16 @@ vim +PlugInstall +qall
 # Download lazyvim if not downloaded already
 [ ! -d "$HOME/.config/nvim" ] && git clone https://github.com/LazyVim/starter $HOME/.dotfiles/neovim/.config/nvim
 
-cd ~/.dotfiles
+cd ~/.dotfiles/packages
 echo "Setting stow directory to $PWD"
 
 # Link rc files
-stow {alacritty,cava,fish,vifm,neovim,bash,git,zsh,nvm,vim}
+stow -t ~ {alacritty,cava,fish,vifm,neovim,bash,git,zsh,nvm,vim,kitty}
 
 if [ $(uname) = 'Linux' ]; then
-	stow {x11,awesomewm,i3wm,picom,polybar,rofi,hyprland}
+	stow -t ~ {x11,awesomewm,i3wm,picom,polybar,rofi,hyprland}
 fi
 
 if [ $(uname) = 'Darwin' ]; then
-	stow {skhd}
+	stow -t ~ skhd
 fi
