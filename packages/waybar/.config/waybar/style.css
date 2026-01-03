@@ -9,10 +9,10 @@
 * {
     border: none;
     border-radius: 0px;
-    font-family: "JetBrainsMono Nerd Font";
+    font-family: "Inter";
     font-weight: bold;
-    font-size: 12px;
-    min-height: 10px;
+    font-size: 10pt;
+    min-height: 10pt;
 }
 
 window#waybar {
@@ -107,28 +107,29 @@ tooltip {
 }
 
 
-#tray,
-#workspaces,
-#taskbar,
-#cpu,
-#custom-cpuinfo,
-#memory,
-#custom-gpuinfo,
 #clock,
-#idle_inhibitor,
+#cpu,
 #custom-battery,
-#custom-brightness,
-#custom-volume,
-#custom-microphone,
-#language,
-#custom-system-update,
-#custom-do-not-disturb,
-#custom-vpn,
 #custom-bluetooth,
+#custom-brightness,
+#custom-cpuinfo,
+#custom-do-not-disturb,
+#custom-gpuinfo,
+#custom-l_end,
+#custom-microphone,
 #custom-networkmanager,
 #custom-power,
-#custom-l_end,
-#custom-r_end {
+#custom-r_end,
+#custom-screenshot,
+#custom-system-update,
+#custom-volume,
+#custom-vpn,
+#idle_inhibitor,
+#language,
+#memory,
+#taskbar,
+#tray,
+#workspaces {
     color: @main-fg;
     background: @main-bg;
     opacity: 1;
