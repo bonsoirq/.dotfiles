@@ -1,7 +1,9 @@
-.vim
-.config/vifm/vifminfo.json
-.vscode
-node_modules
 .config/cava/shaders/
-zsh/secrets
+.config/vifm/vifminfo.json
+.venv
+.vim
+.vscode
+**/fish_variables
 *~
+node_modules
+zsh/secrets

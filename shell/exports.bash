@@ -7,3 +7,10 @@ append_path() {
 	*) export PATH="$PATH:$1" ;;
 	esac
 }
+
+prepend_path() {
+	case ":$PATH:" in
+	*":$1:"*) ;;
+	*) export PATH="$1:$PATH" ;;
+	esac
+}

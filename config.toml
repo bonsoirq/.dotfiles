@@ -1,0 +1,64 @@
+[colors.light]
+Petal = "#fec5bb"
+Coral = "#ff8fa3"
+Blush = "#ffcbf2"
+Amethyst = "#7848c7"
+Crimson = "#db4d50"
+Garnet = "#a22246"
+Apricot = "#f9844a"
+Amber = "#fccc5d"
+Verdant = "#9fdf82"
+Lagoon = "#9cefd8"
+Aether = "#7ccae1"
+Cerulean = "#627fff"
+Azure = "#19527b"
+Lilac = "#dfb0fc"
+
+Primary = "#0a0b0b"
+Secondary = "#1e2122"
+Tertiary = "#323739"
+
+Edge2 = "#454d4f"
+Edge1 = "#596366"
+Edge0 = "#6d7a7d"
+
+Layer2 = "#828f92"
+Layer1 = "#99a3a6"
+Layer0 = "#b0b8ba"
+
+Base = "#f4f5f5"
+Foundation = "#dde0e1"
+Bedrock = "#c6cccd"
+
+
+[colors.dark]
+Petal = "#fec5bb"
+Coral = "#ff8fa3"
+Blush = "#ffcbf2"
+Amethyst = "#7848c7"
+Crimson = "#db4d50"
+Garnet = "#a22246"
+Apricot = "#f9844a"
+Amber = "#fccc5d"
+Verdant = "#9fdf82"
+Lagoon = "#9cefd8"
+Aether = "#7ccae1"
+Cerulean = "#627fff"
+Azure = "#19527b"
+Lilac = "#dfb0fc"
+
+Primary = "#f4f5f5"
+Secondary = "#dde0e1"
+Tertiary = "#c6cccd"
+
+Edge2 = "#b0b8ba"
+Edge1 = "#99a3a6"
+Edge0 = "#828f92"
+
+Layer2 = "#6d7a7d"
+Layer1 = "#596366"
+Layer0 = "#454d4f"
+
+Base = "#323739"
+Foundation = "#1e2122"
+Bedrock = "#0a0b0b"
