@@ -1,9 +1,9 @@
 #!/usr/bin/env fish
 echo "--- BLACK: "
-poetry run black . 
+poetry run black src/
 echo "--- ISORT: "
-poetry run isort .
+poetry run isort src/
 echo "--- FLAKE: "
-poetry run flake8 .
+poetry run flake8 src/
 echo "--- MYPY: "
-poetry run mypy .
+poetry run mypy src/

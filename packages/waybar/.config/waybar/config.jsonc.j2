@@ -92,7 +92,7 @@
     //==> Middle Modules
     ///////////////////////////////////////////////////////////////
     // "custom/cpu": {
-	// 	"exec": "python ~/.local/bin/system-info.py --cpu --normal-color \"#f5c2e7\" --critical-color \"{{ colors.light.Garnet }}\" | cat",
+	// 	"exec": "python ~/.local/bin/system-info.py --cpu --normal-color \"{{ colors.hex.dark.lilac }}\" --critical-color \"{{ colors.hex.dark.crimson }}\" | cat",
 	// 	"on-click": "python ~/.local/bin/system-info.py --cpu --click",
 	// 	"return-type": "json",
 	// 	"format": "{}  ",
@@ -101,7 +101,7 @@
 	// 	"tooltip": true
 	// },
 	// "custom/ram": {
-	// 	"exec": "python ~/.local/bin/system-info.py --ram --normal-color \"#fab387\" --critical-color \"{{ colors.light.Garnet }}\" | cat",
+	// 	"exec": "python ~/.local/bin/system-info.py --ram --normal-color \"{{ colors.hex.dark.apricot }}\" --critical-color \"{{ colors.hex.dark.crimson }}\" | cat",
 	// 	"return-type": "json",
 	// 	"format": "{}  ",
 	// 	"rotate": 0,
@@ -109,7 +109,7 @@
 	// 	"tooltip": true
 	// },
 	// "custom/gpu": {
-	// 	"exec": "python ~/.local/bin/system-info.py --gpu --normal-color \"#f5e0dc\" --critical-color \"{{ colors.light.Garnet }}\" | cat",
+	// 	"exec": "python ~/.local/bin/system-info.py --gpu --normal-color \"{{ colors.hex.dark.petal }}\" --critical-color \"{{ colors.hex.dark.crimson }}\" | cat",
 	// 	"on-click": "python ~/.local/bin/system-info.py --gpu --click",
 	// 	"return-type": "json",
 	// 	"format": "{}",
@@ -131,9 +131,9 @@
             "on-scroll": 1,
             "on-click-right": "mode",
             "format": {
-                "months": "<span color='{{ colors.light.Petal }}'><b>{}</b></span>",
-                "weekdays": "<span color='{{ colors.light.Coral }}'><b>{}</b></span>",
-                "today": "<span color='{{ colors.light.Crimson }}'><b>{}</b></span>"
+                "months": "<span color='{{ colors.hex.dark.petal }}'><b>{}</b></span>",
+                "weekdays": "<span color='{{ colors.hex.dark.coral }}'><b>{}</b></span>",
+                "today": "<span color='{{ colors.hex.dark.crimson }}'><b>{}</b></span>"
             }
         },
         "actions": {
@@ -153,7 +153,7 @@
         }
     },
     "custom/battery": {
-        "exec": "bash ~/.local/bin/battery.sh --status --discharged-color \"{{ colors.light.Garnet }}\" --charged-color \"{{ colors.light.Verdant }}\" | cat",
+        "exec": "bash ~/.local/bin/battery.sh --status --discharged-color \"{{ colors.hex.dark.crimson }}\" --charged-color \"{{ colors.hex.dark.verdant }}\" | cat",
         "return-type": "raw",
 	    "format": "{}  ",
         "interval": 3,
@@ -162,7 +162,7 @@
         "tooltip": false
     },
     "custom/brightness": {
-        "exec": "bash ~/.local/bin/brightness.sh --status --color \"#61afef\" | cat",
+        "exec": "bash ~/.local/bin/brightness.sh --status --color \"{{ colors.hex.dark.aether }}\" | cat",
         "return-type": "raw",
         "format": "{}  ",
         "interval": 1,
@@ -174,7 +174,7 @@
         "tooltip": false
     },
 	"custom/volume": {
-        "exec": "bash ~/.local/bin/volume.sh --device output --status --disabled-color \"{{ colors.light.Garnet }}\" --enabled-color \"{{ colors.light.Verdant }}\" | cat",
+        "exec": "bash ~/.local/bin/volume.sh --device output --status --disabled-color \"{{ colors.hex.dark.crimson }}\" --enabled-color \"{{ colors.hex.dark.verdant }}\" | cat",
         "return-type": "raw",
 	    "format": "{}  ",
         "interval": 1,
@@ -186,7 +186,7 @@
         "tooltip": false
 	},
     "custom/microphone": {
-        "exec": "bash ~/.local/bin/volume.sh --device input --status --disabled-color \"{{ colors.light.Garnet }}\" --enabled-color \"{{ colors.light.Verdant }}\" | cat",
+        "exec": "bash ~/.local/bin/volume.sh --device input --status --disabled-color \"{{ colors.hex.dark.crimson }}\" --enabled-color \"{{ colors.hex.dark.verdant }}\" | cat",
         "return-type": "raw",
 	    "format": "{}",
         "interval": 1,
@@ -204,7 +204,7 @@
         "tooltip": false
     },
     "custom/system-update": {
-        "exec": "bash ~/.local/bin/system-update.sh --status --unupdated-color \"{{ colors.light.Amber }} \" --updated-color \"{{ colors.light.Verdant }}\" | cat",
+        "exec": "bash ~/.local/bin/system-update.sh --status --unupdated-color \"{{ colors.hex.dark.amber }} \" --updated-color \"{{ colors.hex.dark.verdant }}\" | cat",
         "return-type": "raw",
         "format": "{} ",
         "rotate": 0,
@@ -213,7 +213,7 @@
         "tooltip": false
     },
     "custom/do-not-disturb": {
-        "exec": "bash ~/.local/bin/do-not-disturb.sh --status --disabled-color \"{{ colors.light.Garnet }}\" --enabled-color \"{{ colors.light.Verdant }}\" | cat",
+        "exec": "bash ~/.local/bin/do-not-disturb.sh --status --disabled-color \"{{ colors.hex.dark.crimson }}\" --enabled-color \"{{ colors.hex.dark.verdant }}\" | cat",
         "return-type": "raw",
         "format": "{} ",
         "interval": 1,
@@ -223,12 +223,12 @@
     },
     "custom/screenshot": {
         "on-click": "bash ~/.local/bin/rofi/screenshot.sh",
-        "format": "<span color=\"{{ colors.light.Azure }}\">⎙  </span>",
+        "format": "<span color=\"{{ colors.hex.dark.aether }}\">⎙  </span>",
         "rotate": 0,
         "tooltip": false
     },
     "custom/vpn": {
-        "exec": "bash ~/.local/bin/rofi/vpn-manager.sh --status --disabled-color \"{{ colors.light.Garnet }}\" --enabled-color \"{{ colors.light.Verdant }}\" | cat",
+        "exec": "bash ~/.local/bin/rofi/vpn-manager.sh --status --disabled-color \"{{ colors.hex.dark.crimson }}\" --enabled-color \"{{ colors.hex.dark.verdant }}\" | cat",
         "return-type": "raw",
         "format": "{} ",
         "interval": 3,
@@ -237,14 +237,14 @@
         "tooltip": false
     },
     "custom/bluetooth": {
-        "format": "<span color=\"{{ colors.light.Azure }}\">󰂯  </span>",
+        "format": "<span color=\"{{ colors.hex.dark.aether }}\">󰂯  </span>",
         "interval": 3,
         "rotate": 0,
         "on-click": "blueman-manager",
         "tooltip": false
     },
     "custom/networkmanager": {
-        "exec": "bash ~/.local/bin/rofi/network-manager.sh --status --disabled-color \"{{ colors.light.Garnet }}\" --enabled-color \"{{ colors.light.Verdant }}\" | cat",
+        "exec": "bash ~/.local/bin/rofi/network-manager.sh --status --disabled-color \"{{ colors.hex.dark.crimson }}\" --enabled-color \"{{ colors.hex.dark.verdant }}\" | cat",
         "return-type": "raw",
         "format": "{}  ",
         "interval": 3,
@@ -254,7 +254,7 @@
     },
     "custom/power": {
         "on-click": "bash ~/.local/bin/rofi/powermenu.sh",
-        "format": "<span color=\"{{ colors.light.Garnet }}\"> </span>",
+        "format": "<span color=\"{{ colors.hex.dark.crimson }}\"> </span>",
         "rotate": 0,
         "tooltip": false
     },

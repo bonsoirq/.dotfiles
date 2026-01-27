@@ -1,10 +1,10 @@
-@define-color bar-bg {{ colors.dark.Bedrock }}11;
-@define-color main-bg {{ colors.dark.Foundation }};
-@define-color main-fg {{ colors.dark.Primary }};
-@define-color wb-act-bg {{ colors.dark.Layer0 }};
-@define-color wb-act-fg {{ colors.dark.Secondary }};
-@define-color wb-hvr-bg {{ colors.dark.Edge2 }};
-@define-color wb-hvr-fg {{ colors.dark.Layer0 }};
+@define-color bar-bg rgba({{ colors.rgb.dark.bedrock }}, 0);
+@define-color main-bg rgba({{ colors.rgb.dark.foundation }}, 0.8);
+@define-color main-fg rgba({{ colors.rgb.dark.primary }}, 1);
+@define-color wb-act-bg rgba({{ colors.rgb.dark.layer0 }}, 0.9);
+@define-color wb-act-fg rgba({{ colors.rgb.dark.secondary }}, 0.7);
+@define-color wb-hvr-bg rgba({{ colors.rgb.dark.edge2 }}, 0.4);
+@define-color wb-hvr-fg rgba({{ colors.rgb.dark.layer0 }}, 0.8);
 
 * {
     border: none;
@@ -22,7 +22,6 @@ window#waybar {
 
 tooltip {
     background: @main-bg;
-    background-opacity: 0.1;
     color: @main-fg;
     border-radius: 7px;
     border-width: 0px;
