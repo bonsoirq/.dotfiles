@@ -9,7 +9,7 @@ configuration {
     drun-display-format:         "{name}";
     window-format:               "{w}{t}";
     font:                        "GeistMono Nerd Font 10";
-    icon-theme:                  "Tela-circle-dracula";
+    icon-theme:                  "Breeze";
 } 
 
 @theme "theme"

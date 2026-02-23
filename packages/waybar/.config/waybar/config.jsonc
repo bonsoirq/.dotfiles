@@ -60,6 +60,7 @@
     ///////////////////////////////////////////////////////////////
     "tray": {
         "icon-size": 18,
+        "icon-theme": "breeze",
         "rotate": 0,
         "spacing": 4
     },
@@ -77,7 +78,7 @@
 		"format": "{icon}",
 		"rotate": 0,
 		"icon-size": 20,
-		"icon-theme": "Tela-circle-dracula",
+		"icon-theme": "breeze-dark",
         "spacing": 0,
 		"tooltip-format": "{title}",
 		"on-click": "activate",
