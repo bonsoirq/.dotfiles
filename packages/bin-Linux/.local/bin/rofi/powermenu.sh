@@ -4,7 +4,7 @@ choice=$(printf "  Lock\n󰍃  Logout\n󰒲  Suspend\n  Reboot\n  Shutd
 
 case "$choice" in
   "  Lock") hyprlock ;;
-  "󰍃  Logout") hyprctl dispatch exit ;;
+  "󰍃  Logout") hyprctl dispatch 'hl.dsp.exit()' ;;
   "󰒲  Suspend") hyprlock & sleep 1 && systemctl suspend ;;
   "  Reboot") systemctl reboot ;;
   "  Shutdown") systemctl poweroff ;;
