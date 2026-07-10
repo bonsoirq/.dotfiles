@@ -16,7 +16,7 @@ echo "Setting stow directory to $PWD"
 stow -t ~ {alacritty,cava,fish,vifm,neovim,bash,git,zsh,nvm,vim,kitty}
 
 if [ $(uname) = 'Linux' ]; then
-	stow -t ~ {x11,awesomewm,i3wm,mise,picom,polybar,pyenv,rofi,hyprland,hyprlock,waybar,bin-Linux}
+	stow -t ~ {x11,awesomewm,i3wm,mise,picom,polybar,pyenv,quickshell,rofi,hyprland,hyprlock,waybar,bin-Linux}
 fi
 
 if [ $(uname) = 'Darwin' ]; then

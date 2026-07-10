@@ -7,3 +7,5 @@
 *~
 node_modules
 zsh/secrets
+.mypy_cache
+**/cava/shaders
